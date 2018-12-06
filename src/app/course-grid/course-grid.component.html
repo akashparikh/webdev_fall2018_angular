@@ -1,0 +1,103 @@
+
+
+<div class="container-fluid">
+  <h1>Welcome to WhiteBoard</h1>
+
+
+  <div class="row">
+
+  <div class="col-4">
+
+    <h2>Courses</h2>
+
+    <div class="row">
+      <div *ngFor="let course of courses">
+          <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">
+                  {{course.title}}
+                </h2>
+                <p class="card-text">
+                    Hello World
+                </p>
+                <a routerLink="/course/{{course.id}}" class="btn btn-primary">
+                  View
+                </a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+  <div class="row">
+  <ul class="list-group">
+      <li (click)="selectCourse(course)"
+           [ngClass] = "{'active':course.id==selectedCourse.id}"
+           *ngFor="let course of courses"
+          class="list-group-item">
+          {{course.title}}
+        <a routerLink="/course/{{course.id}}"
+           class="btn btn-danger">View</a>
+      </li>
+  </ul>
+  </div>
+  </div>
+
+  <div class="col-3">
+  <h1> Modules</h1>
+
+    <ul class="list-group">
+        <li (click)="selectModule(module)"
+            [ngClass] = "{'active':module.id==selectedModule.id}"
+            *ngFor="let module of selectedCourse.modules"
+            class="list-group-item">
+          {{module.title}}
+        </li>
+    </ul>
+
+  </div>
+
+  <div class="col-3">
+    <h1>Lessons</h1>
+    <ul class="list-group">
+      <li (click)="selectLesson(lesson)"
+          [ngClass] = "{'active':lesson.id==selectedLesson.id}"
+          *ngFor="let lesson of selectedModule.lessons"
+          class="list-group-item">
+        {{lesson.title}}
+      </li>
+    </ul>
+  </div>
+
+    <div class="col-3">
+      <h1>Topics</h1>
+      <ul class="list-group">
+        <li (click)="selectTopic(topic)"
+            [ngClass] = "{'active':topic.id==selectedTopic.id}"
+            *ngFor="let topic of selectedLesson.topics"
+            class="list-group-item">
+          {{topic.title}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+
+
+  <!--{{selectedCourse.title}}-->
+  <!--{{selectedModule.l.length}}-->
+
+</div>
+
+<!--<div class="row">-->
+<!--<div *ngFor="let course of courses" class="col-sm-3 mt-3">-->
+<!--<div class="card">-->
+<!--<div class="card-body">-->
+<!--<h1 class="card-title">{{course.title}}</h1>-->
+<!--<h2>{{course.id}}</h2>-->
+<!--{{course.modules.length}}-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

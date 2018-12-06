@@ -1,0 +1,18 @@
+<div class="rows">
+<ul class="nav nav-tabs">
+  <li *ngFor="let topic of topics"
+      class="nav-item">
+    <a class="nav-link active"
+       (click)="selectTopic(topic)"
+       [ngClass] = "{'active':topic.id==selectedTopic.id}"
+       routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}">
+      {{topic.title}}
+    </a>
+  </li>
+</ul>
+</div>
+<br/>
+<div class="rows">
+  <app-widget>
+  </app-widget>
+</div>
